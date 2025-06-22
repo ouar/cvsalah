@@ -1,0 +1,69 @@
+<body class="bg-gray-100 text-gray-800 font-sans p-6">
+  <h1 class="text-3xl font-bold text-gray-900 mb-6">
+    🛠️ Commandes Shell Essentielles pour DevOps
+  </h1>
+
+  <div class="space-y-10">
+    <section>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-2">1. Commandes de base</h2>
+      <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm">
+ls -la             # Lister les fichiers avec détails
+cd /chemin         # Changer de répertoire
+pwd                # Afficher le chemin actuel
+touch fichier      # Créer un fichier
+mkdir dossier      # Créer un dossier
+rm fichier         # Supprimer un fichier
+rm -r dossier      # Supprimer un dossier récursivement
+mv src dst         # Déplacer ou renommer
+cp src dst         # Copier un fichier ou dossier
+cat fichier        # Lire un fichier
+less fichier       # Lire avec navigation
+echo "text"        # Afficher du texte
+
+go build -o nom_du_binaire chemin_vers_main.go
+which nom_du_binaire        # Vérifier que le binaire est accessible
+./nom_du_binaire            # Lancer le programme
+        </pre>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-2">2. Permissions et utilisateurs</h2>
+      <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm">
+chmod +x fichier              # Rendre exécutable
+chown user:group fichier     # Changer le propriétaire
+whoami                       # Utilisateur courant
+id                           # Infos sur les groupes
+
+sudo chown ubuntu:ubuntu reset-k8s.sh
+chmod 775 reset-k8s.sh
+        </pre>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-2">3. Réseau</h2>
+      <pre class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm">
+ip a / ifconfig         # Interfaces réseau
+ping google.com         # Vérifier la connectivité
+curl http://site.com    # Tester une URL
+wget url                # Télécharger
+
+netstat -tuln           # Ports TCP/UDP ouverts
+ss -tuln                # Sockets ouverts
+lsof -i -P -n           # Processus liés aux ports
+
+ufw status              # État du pare-feu
+ufw allow 8080/tcp      # Ouvrir le port 8080
+ufw deny 22             # Fermer le port 22
+ufw delete allow 8080   # Supprimer la règle
+
+iptables -L
+iptables -A INPUT -p tcp --dport 3000 -j ACCEPT
+iptables -A INPUT -p tcp --dport 3000 -j DROP
+        </pre>
+      <p class="text-orange-600 font-semibold mt-2">⚠️ Manipuler les ports impacte la sécurité du serveur. Toujours
+        tester sur un environnement de test !</p>
+    </section>
+
+    <!-- Ajoute ici les autres sections avec la même structure -->
+  </div>
+</body>
